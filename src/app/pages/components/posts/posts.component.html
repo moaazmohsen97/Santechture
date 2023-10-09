@@ -1,0 +1,49 @@
+<ng-container *ngIf="isLoading">
+  <div class="container">
+    <app-skeleton [type]="'posts'"></app-skeleton>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+  <div class="container">
+    <h2 class="my-3 text-dark-color fw-bold">{{'posts.all_posts' | translate}}</h2>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+      <ng-container *ngIf="posts.length > 0; else noData">
+        <div class="col mb-4" *ngFor="let item of posts">
+          <div class="global-card rounded-4 overflow-hidden p-0">
+            <div class="posts rounded-4">
+              <img src="assets/images/Santechture-Duo-Article.png" alt="Post image" class="mw-100">
+              <div class="rounded-4"></div>
+              <button type="button" class="btn btn-link edit-btn d-flex justify-content-center align-items-center"
+                (click)="onUpdatePost(item)">
+                <i class="fas fa-edit"></i>
+              </button>
+            </div>
+            <div class="p-4 bg-white-color">
+              <h2 class="fw-bold text-dark-color fs-4" [routerLink]="['/posts/details', item.id]" role="button">
+                <span *ngIf="item?.title?.length > 10" tooltipPosition="top" [pTooltip]="item?.title">{{ item?.title |
+                  slice: 0:25 }}</span>
+                <span *ngIf="item?.title?.length > 25">...</span>
+                <span *ngIf="item?.title?.length < 10">{{item?.title}}</span>
+              </h2>
+              <p class="d-block text-sm mb-4 text-desc-color">
+                {{item?.body?.length > 100 ? (item?.body | slice: 0:100) + '...' : item?.body}}
+              </p>
+              <div class="d-flex align-items-center justify-content-end" [routerLink]="['/posts/details', item.id]">
+                <button [routerLink]="['/posts/details', item.id]" class="btn btn-solid-main">
+                  {{'general.moreDetails' | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #noData>
+        <div class="global-card p-4 d-flex justify-content-center">
+          <span>{{'general.no_result_found' | translate}}</span>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+  <p-paginator [first]="skip" [rows]="take" styleClass="bg-white-color" [totalRecords]="100"
+    (onPageChange)="onClickPaginate($event)"></p-paginator>
+</ng-container>

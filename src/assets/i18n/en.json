@@ -1,0 +1,20 @@
+{
+  "languages":{
+    "english":"English",
+    "arabic":"Arabic"
+  },
+  "general": {
+    "default":"Default",
+    "moreDetails":"More Details",
+    "details":"Details",
+    "no_result_found": "No results is found",
+    "light": "Light",
+    "dark": "Dark"
+  },
+
+  "posts": {
+    "all_posts": "All Posts",
+    "update": "Update",
+    "all_comments": "All Comments"
+  }
+}

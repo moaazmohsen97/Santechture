@@ -1,0 +1,42 @@
+<ng-container *ngIf="isLoading">
+  <div class="container">
+      <app-skeleton [type]="'details'"></app-skeleton>
+  </div>
+</ng-container>
+<ng-container *ngIf="!isLoading">
+  <div class="container">
+    <div class="post-details global-card mb-3">
+      <div class="mb-4">
+        <img src="assets/images/Santechture-Duo-Article.png" alt="Post-details" class="w-100 rounded-4">
+      </div>
+      <div class="p-4 mb-4">
+        <h2 class="fw-bold text-capitalize text-dark-color mb-3">{{ postDetails?.title }}</h2>
+        <span class="text-desc-color">{{postDetails?.body}}</span>
+      </div>
+      <hr>
+      <div class="comments mt-5">
+        <h2 class="fs-4 text-dark-color mb-4">{{'posts.all_comments' | translate}}</h2>
+        <ng-container *ngIf="comments.length > 0; else noData">
+          <div *ngFor="let item of comments">
+            <div class="d-flex gap-3 border-bottom py-4">
+              <img src="assets/images/avatar.jpg" class="rounded-2" width="70" height="70" alt="">
+                <div class="comment-content">
+                  <div class="d-flex align-items-center justify-content-between">
+                    <h2 class="fw-bold text-dark-color fs-5 mb-0">{{ item?.name }}</h2>
+                    <!-- <span class="text-desc-color small">9 Oct 2023, 8:00 Pm</span> -->
+                  </div>
+                  <span class="text-desc-color small">{{item?.email }}</span>
+                  <p class="text-desc-color mt-2">{{ item?.body }}</p>
+                </div>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #noData>
+          <div class="global-card p-4 d-flex justify-content-center">
+            <span>{{'general.no_result_found' | translate}}</span>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</ng-container>

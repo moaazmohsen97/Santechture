@@ -1,0 +1,28 @@
+<div class="dropdown-language general-dropdown">
+  <div class="dropdown">
+    <button class="dropdown-toggle btn p-0  d-flex align-items-center " type="button" id="dropdownMenuButton1"
+      data-bs-toggle="dropdown" aria-expanded="false">
+      <ng-container *ngIf="currentLanguage=='ar'">
+        <img (click)="translationService?.changeLang('ar')" class="flag" src="assets/images/flag/eg.svg" alt="eg">
+      </ng-container>
+      <ng-container *ngIf="currentLanguage=='en'">
+        <img (click)="translationService?.changeLang('en')" class="flag" src="assets/images/flag/us.svg" alt="us">
+      </ng-container>
+      <!-- </div> -->
+    </button>
+    <ul class="dropdown-menu rounded-25 border-0 shadow p-3 bg-white-color position-absolute"
+      aria-labelledby="dropdownMenuButton1">
+      <li class="nav-item " (click)="translationService?.changeLang('ar')">
+        <a class="nav-link px-2 p-1 d-flex align-items-center gap-2">
+          <img class="flag" src="assets/images/flag/eg.svg" alt="eg">
+          <span>العربية</span>
+        </a>
+      </li>
+      <li class="nav-item " (click)="translationService?.changeLang('en')"><a
+          class="nav-link px-2 p-1 d-flex align-items-center gap-2">
+          <img class="flag" src="assets/images/flag/us.svg" alt="en">
+          <span>English</span>
+        </a></li>
+    </ul>
+  </div>
+</div>

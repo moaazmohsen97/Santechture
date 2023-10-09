@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-white-color shadow-sm"
+  (clickOutside)="collapsedMenu == true ? collapsedMenu = false :''">
+  <div class="container h-100">
+    <a class="navbar-brand h-100" [routerLink]="''">
+      <ng-container *ngIf="currentTheme=='light'; else darkMode">
+        <img src="assets/images/logo/logo.svg" alt="logo" class="logo h-100">
+      </ng-container>
+      <ng-template #darkMode>
+        <img src="assets/images/logo/logo.svg" alt="logo" class="logo h-100">
+      </ng-template>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation" [attr.aria-expanded]="!collapsedMenu" (click)="collapsedMenu = !collapsedMenu">
+      <i class="fas fa-bars text-main-color fs-4"></i>
+    </button>
+    <div class="collapse navbar-collapse m-auto gap-4" id="navbarSupportedContent" [class.show]="collapsedMenu">
+      <ul class="d-flex align-items-center ms-auto px-0 justify-content-center my-xl-0 my-md-3 my-sm-3 my-3">
+        <li class="nav-item p-2">
+          <app-theme></app-theme>
+        </li>
+        <li class="nav-item p-2">
+          <app-language-selector></app-language-selector>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

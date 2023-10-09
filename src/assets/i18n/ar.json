@@ -1,0 +1,20 @@
+{
+  "languages":{
+    "english":"English",
+    "arabic":"Arabic"
+  },
+  "general": {
+    "default":"إفتراضي",
+    "moreDetails":"المزيد من التفاصيل",
+    "details":"تفاصيل",
+    "no_result_found": "لا يوجد نتائج",
+    "light": "فاتح",
+    "dark": "عامق"
+  },
+
+  "posts": {
+    "all_posts": "كل المشاركات",
+    "update": "تحديث",
+    "all_comments": "كل التعليقات"
+  }
+}
